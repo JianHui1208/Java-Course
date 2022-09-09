@@ -1,0 +1,259 @@
+package bankaccount; 
+
+  
+
+  
+
+import java.io.Console; 
+
+import java.util.ArrayList; 
+
+import java.util.Dictionary; 
+
+import java.util.HashMap; 
+
+import java.util.Scanner; 
+
+  
+
+/** 
+
+* 
+
+* @author user 
+
+*/ 
+
+  
+
+public class BankAccount {     
+
+        private int id; 
+
+        static double balance; 
+
+        static BankAccount account = new BankAccount(); 
+
+        static HashMap<Integer, Double> accounts = new HashMap<>(); 
+
+     
+
+        public BankAccount(){ 
+
+     
+
+    } 
+
+         
+
+    public BankAccount (int id,double balance){ 
+
+        this.id=id; 
+
+        this.balance=balance; 
+
+    } 
+
+     
+
+    public void setId(int id) { 
+
+            this.id = id;  
+
+        } 
+
+     
+
+    public int getID(){ 
+
+        return this.id; 
+
+    } 
+
+     
+
+    public void setBalance(double balance){ 
+
+        this.balance=balance;         
+
+    } 
+
+     
+
+        public double getBalance() { 
+
+            return accounts.get(id); 
+
+        } 
+
+         
+
+        public void deposit(double amount) { 
+
+            double temp = accounts.get(id); 
+
+            accounts.replace(id, temp+amount); 
+
+        } 
+
+         
+
+        public void withdraw(double amount) { 
+
+            double temp = accounts.get(id); 
+
+            accounts.replace(id, temp-amount);  
+
+        } 
+
+    @Override 
+
+        public String toString() {  
+
+            return "ID" + this.id; 
+
+        } 
+
+     
+
+  
+
+     
+
+    public static void main(String[] args) { 
+
+         
+
+        Scanner scanner = new Scanner(System.in); 
+
+            System.out.println("Enter:"); 
+
+         
+
+        String command = scanner.nextLine(); 
+
+        String[] cmdArgs = command.split(" ");  
+
+        String cmdType = cmdArgs[0]; 
+
+        while(!cmdArgs[0].equals("End")){ 
+
+             
+
+        if (cmdArgs[0].equals("Create")) {                                   
+
+            int id = Integer.valueOf(cmdArgs[1]); 
+
+            if (accounts.containsKey(id)) 
+
+                System.out.println("Account already exists"); 
+
+            else { 
+
+                account = new BankAccount(); 
+
+                account.setId(id); 
+
+                accounts.put(id, balance);                 
+
+            } 
+
+        } 
+
+         
+
+        if(cmdArgs[0].equals("Deposit")){                                    
+
+            int id = Integer.valueOf(cmdArgs[1]); 
+
+            account.setId(id); 
+
+            int amount = Integer.valueOf(cmdArgs[2]); 
+
+            if (accounts.containsKey(id)){ 
+
+                account.deposit(amount); 
+
+                System.out.println("AccountID:"+id+" Balance:"+account.getBalance()); 
+
+            }else{ 
+
+                System.out.println("Account does not exist"); 
+
+            } 
+
+        } 
+
+         
+
+        if(cmdArgs[0].equals("Withdraw")){                                   
+
+            int id = Integer.valueOf(cmdArgs[1]); 
+
+            account.setId(id); 
+
+            int amount = Integer.valueOf(cmdArgs[2]); 
+
+            if (accounts.containsKey(id)){ 
+
+                account.withdraw(amount); 
+
+                if(accounts.get(id)<0){ 
+
+                   account.deposit(amount); 
+
+                   System.out.println("Insufficient balance"); 
+
+                } 
+
+                System.out.println("AccountID:"+id+" Balance:"+account.getBalance()); 
+
+            }else{ 
+
+                System.out.println("Account does not exist"); 
+
+            } 
+
+        } 
+
+         
+
+        if(cmdArgs[0].equals("Print")){                                      
+
+            int id = Integer.valueOf(cmdArgs[1]); 
+
+            account.setId(id); 
+
+             
+
+            if (accounts.containsKey(id)){ 
+
+                System.out.printf("ID:%d,Balance:%.2f\n",id,accounts.get(id)); 
+
+            }else{ 
+
+                System.out.println("Account does not exist"); 
+
+            } 
+
+        } 
+
+         
+
+        System.out.println("Enter:"); 
+
+        command = scanner.nextLine(); 
+
+        cmdArgs = command.split(" "); 
+
+        cmdType = cmdArgs[0]; 
+
+        } 
+
+         
+
+         
+
+    } 
+
+    } 

@@ -1,0 +1,5 @@
+Membership       Tatol Charges       Discount Amount       NetFee Payable
+Gold		10.0		1.5		8.5
+Gold		8.0		1.2		6.8
+Silver		8.0		0.8		7.2
+Silver		20.0		2.0		18.0

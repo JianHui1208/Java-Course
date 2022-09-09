@@ -1,0 +1,214 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package mcd;
+
+/**
+ *
+ * @author User
+ */
+
+
+import java.util.*;
+public class MCD {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner input = new Scanner(System.in);
+        int quantity=0;
+        int in;
+        System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("                                                         Welcome to McDonald`s ");
+        System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.print("Enter your name : ");
+        String name = input.next();
+        System.out.print("Enter your phone number : ");
+        String phoneNumber = input.next();
+        System.out.print("Enter Today's Date : ");
+        String date = input.next();
+        System.out.print("Enter your email : ");
+        String email = input.next();
+        String [] a = new String [4];
+        a[0]= name;
+        a[1]= phoneNumber;
+        a[2]= date;
+        a[3]= email;
+        do{
+        System.out.print("Enter 1 to Order,Enter 2 to Receipt,Enter 3 to exit: ");
+        in=input.nextInt();
+        /*while(in==2){//??????2?? ????? ??????keying data??
+            System.out.println("Enter your booking");
+            System.out.print("Enter 1 to Order,Enter 2 to Receipt,Enter 3 to exit: ");
+            in=input.nextInt();
+        }*/
+        switch(in)
+        {
+            case 1: 
+                double alltotal=0;
+                
+                System.out.print("Do you want to pay with cash or credit card ? Cash (Enter 1),Credit card (Enter 2): ");
+                int payMethods = input.nextInt();
+                if(payMethods == 2){
+                    System.out.print("Enter your card number : ");
+                    int cardNum = input.nextInt();
+                }
+                
+                System.out.print("If you want to eat here (Enter 1), take away (Enter 2), delivery (Enter 3) or cancel (Enter 4) : ");
+                int buyMethods = input.nextInt();
+
+                if(buyMethods == 3 && buyMethods != 1 && buyMethods !=2){
+                    System.out.print("Enter your address : ");
+                    String address = input.next();
+                } 
+                
+                if (buyMethods != 4){
+                     System.out.print("Enter 1 to show the McDonald`s menu : ");
+                int menu = input.nextInt();
+                Menu();
+        
+                System.out.print("Enter Your Food Number : ");
+                int foodNum=input.nextInt();
+        
+         double [] foodPrice = new double [30];
+         foodPrice [0] = 15;
+         foodPrice [1] = 30;
+         foodPrice [2] = 12;
+         foodPrice [3] = 25;
+         foodPrice [4] = 7;
+         foodPrice [5] = 7;
+         foodPrice [6] = 10;
+         foodPrice [7] = 25;
+         foodPrice [8] = 10;
+         foodPrice [9] = 13;
+         foodPrice [10] = 15;
+         foodPrice [11] = 7;
+         foodPrice [12] = 10;
+         foodPrice [13] = 20;
+         foodPrice [14] = 20;
+         foodPrice [15] = 4;
+         foodPrice [16] = 2;
+         foodPrice [17] = 2;
+         foodPrice [18] = 6;
+         foodPrice [19] = 3;
+         foodPrice [20] = 3;
+         foodPrice [21] = 3;
+         foodPrice [22] = 3;
+         foodPrice [23] = 3;
+         foodPrice [24] = 7;
+         foodPrice [25] = 10;
+         foodPrice [26] = 9;
+         foodPrice [27] = 15;
+         foodPrice [28] = 10;
+         foodPrice [29] = 12;
+        
+        System.out.print("Quantity : ");
+        quantity = input.nextInt();
+        //int [] quantity = new int [0];
+        double subTotal;
+        subTotal =foodPrice[foodNum-1] * quantity;
+        alltotal=alltotal+subTotal;
+        
+        System.out.print("Do you continue your order ? Yes (Enter 1),No(Enter 2): ");
+        int confirm = input.nextInt();
+        
+        if (confirm == 1){
+            Menu();
+        }else if (confirm == 2){
+                System.out.println("Total price is : RM " + alltotal);
+        }
+                }break;
+                       
+            
+            
+        case 2: System.out.print("Enter your name: ");
+                    String names=input.next();
+                    System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------");
+                    System.out.println("                                                                   Receipt ");
+                    System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------");
+                    System.out.println("Name: " + a[0]);
+                    System.out.println("Phone Number: " + a[1]);
+                    System.out.println("Date: " + a[2]);
+                    System.out.println("Email: " + a[3]);
+                    System.out.println("Quantity: "+ quantity);
+                    System.out.println("Total: ");break;
+                        case 3: System.exit(0);break;
+                        default:break;
+        }
+        }while(in!=3);
+    }
+     public static void Booking(){
+        
+        
+     }
+    
+     public static void Menu(){
+        System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("                                                                   Menu ");
+        System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("   Package Meals (/Include drinks & french fries/) : ");
+        
+        System.out.print("   1. Double McChicken               RM15");
+        System.out.println("                                                           2. Spicy Chicken McDeluxe          RM30");
+        System.out.print("   3. Chicken McNuggets              RM12");
+        System.out.println("                                                           4. Ayam Goreng Spicy               RM25");
+        System.out.println("   5. Filet-O-Fish                   RM7");
+        
+        System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("   AlaCarte Meals : ");
+        
+        System.out.print("   6. Mchicken Burger                RM7");
+        System.out.println("                                                            7. Double McChicken                RM10");
+        System.out.print("   8. Spicy Chicken Deluxe           RM25");
+        System.out.println("                                                           9. Double Spicy Chicken Deluxe     RM10");
+        System.out.print("   10. Double Cheese Burger          RM13");
+        System.out.println("                                                           11. Triple Cheese Burger           RM15");
+        System.out.print("   12. Double Fish-O-Fish            RM7");
+        System.out.println("                                                           13. Filet-O-Fish                   RM10");
+        System.out.print("   14. Fried Chicken McD 2pcs        RM20");
+        System.out.println("                                                          15. Fried Chicken McD (Spicy)      RM20");
+        
+        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("  Dessert : ");
+        
+        System.out.print("  16. Oreo McFlurry                  RM4");
+        System.out.println("                                                           17. Chocolate Sundae               RM2");
+        System.out.print("  18. Strawberry Sundae              RM2");
+        System.out.println("                                                           19. Apple Pie                      RM6");
+        
+        System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("  Drinks : ");
+        
+        System.out.print("  20. 100 Plus                       RM3");
+        System.out.println("                                                           21. Coca-Cola                      RM3");
+        System.out.print("  22. Sprite                         RM3");
+        System.out.println("                                                           23. Ice Lemon Tea                  RM3");
+        System.out.println("  24. Milo                           RM3");
+        
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("  Happy Meal");
+        
+        System.out.print("  25. Chicken Porridge McD           RM7");
+        System.out.println("                                                           26. CheeseBurger                   RM10");
+        System.out.print("  27. 4pcs Chicken McNuggets         RM9");
+        System.out.println("                                                           28. Fried Chicken McD              RM15");
+        System.out.print("  29. Chicken Burger                 RM10");
+        System.out.println("                                                            30. Toy                            RM12");
+} 
+     public static void Receipt(String [] a){
+        Scanner input = new Scanner(System.in);
+     }
+}               
+     
+
+ 
+
+   
+
+
+
+

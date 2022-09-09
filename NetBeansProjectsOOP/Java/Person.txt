@@ -1,0 +1,121 @@
+/* 
+
+* To change this license header, choose License Headers in Project Properties. 
+
+* To change this template file, choose Tools | Templates 
+
+* and open the template in the editor. 
+
+*/ 
+
+package bankaccount; 
+
+
+
+/ 
+
+* 
+
+* @author User 
+
+*/ 
+
+import java.util.ArrayList; 
+
+import java.util.Iterator; 
+
+import java.util.List; 
+
+
+
+/ 
+
+* 
+
+* @author user 
+
+*/ 
+
+public class Person extends BankAccount{ 
+
+    private int age; 
+
+    private String name;
+
+    static List<BankAccount>accounts; 
+
+
+
+
+
+    public Person(String name,int age){ 
+
+        this.name = name; 
+
+        this.age = age; 
+
+        this.accounts = new ArrayList<>(); 
+
+
+
+    } 
+
+    public Person(String name,int age,List<BankAccount>accounts){ 
+
+        this.name = name; 
+
+        this.age = age; 
+
+        this.accounts = accounts; 
+
+    } 
+
+    public double getBalance(){ 
+
+        return balance; 
+
+    } 
+
+    public static void main(String []args){ 
+
+       Person Lee = new Person("Lee Wei Chong",34); 
+
+       Person Ali = new Person("Mohd Fairus Bin Mohd Ali",31,accounts); 
+
+       accounts.add(Ali); 
+
+       Lee.setId(1); 
+
+       Ali.setId(2); 
+
+       Lee.setBalance(1500); 
+
+       Ali.setBalance(2000); 
+
+        Iterator itr=accounts.iterator(); 
+
+       Person p1= (Person)itr.next(); 
+
+       System.out.println("Name:"+Lee.name 
+
+                          +"\nAge:"+Lee.age 
+
+                          +"\nID:"+Lee.getID() 
+
+                          +"\nBalance:"+Lee.getBalance()); 
+
+
+
+       System.out.println("Name:"+p1.name 
+
+               +"\nAge:"+p1.age 
+
+               +"\nID:"+Ali.getID() 
+
+               +"\nBalance:"+Ali.getBalance()); 
+
+
+
+    } 
+
+}

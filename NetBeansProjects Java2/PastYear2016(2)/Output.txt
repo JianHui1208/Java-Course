@@ -1,0 +1,3 @@
+Name     Pages   Type    Printing Cost
+aaa		80	    Black	4.00
+bbb		100	    Color	50.00
